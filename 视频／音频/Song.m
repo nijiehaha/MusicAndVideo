@@ -24,13 +24,9 @@ static BOOL isStop = NO;
 {
     
     if (self == [super initWithFrame:frame]) {
-        
         [self readLrc];
-        
         if (_lyrics.count != 0) {
-            
             i = 0;
-            
         }
         
     }
@@ -76,6 +72,8 @@ static BOOL isStop = NO;
     if (isStop && time > self.player.currentTime) {
         NSTimeInterval nextTime = time - self.player.currentTime;
         NSLog(@"%f",nextTime);
+        //计算暂停之后的时间误差，然后调整。
+        //感觉如果需要加上一个倒退功能这边还要升级
         _timer = [NSTimer scheduledTimerWithTimeInterval:nextTime target:self selector:@selector(myLabelText) userInfo:nil repeats:NO];
         return;
     }
