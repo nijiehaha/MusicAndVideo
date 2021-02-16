@@ -74,6 +74,7 @@ static BOOL isStop = NO;
         NSLog(@"%f",nextTime);
         //计算暂停之后的时间误差，然后调整。
         //感觉如果需要加上一个倒退功能这边还要升级
+        //这个再来 pull request
         _timer = [NSTimer scheduledTimerWithTimeInterval:nextTime target:self selector:@selector(myLabelText) userInfo:nil repeats:NO];
         return;
     }
